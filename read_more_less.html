@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Read more Read Less JS</title>
+        <style>
+            .morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+        </style>
+    </head>
+    <body>
+        <p style="margin-top: 3px;" class="more">Be aware that a retired Juniper Customer Care phone number is being used fraudulently. Customers calling this number are offered a cash rebate in exchange for information, including Juniper contract ID, email address, and credit card number. Juniper is not associated with this rebate offer and has no relationship with the company offering it.<br />Juniper is working with the proper authorities in order to cease this inappropriate activity.<br />Please update your records with the correct Customer Care number: 888-314-5822. Please also bookmark: <a href="https://www.juniper.net/support/requesting-support.html">https://www.juniper.net/support/requesting-support.html</a>.</p>
+<p style="margin-top: 3px;" class="more">Be aware that a retired Juniper Customer Care phone number is being used fraudulently. Customers calling this number are offered a cash rebate in exchange for information, including Juniper contract ID, email address, and credit card number. Juniper is not associated with this rebate offer and has no relationship with the company offering it.<br />Juniper is working with the proper authorities in order to cease this inappropriate activity.<br />Please update your records with the correct Customer Care number: 888-314-5822. Please also bookmark: <a href="https://www.juniper.net/support/requesting-support.html">https://www.juniper.net/support/requesting-support.html</a>.</p>
+<script>
+    $(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 87;  // How many characters are shown by default
+    var ellipsestext = "";
+    var moretext = "Read More";
+    var lesstext = "Read Less";
+    
+
+    $('.more').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+</script>
+    </body>
+</html>
